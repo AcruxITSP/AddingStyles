@@ -16,6 +16,7 @@ header {
     background-color: var(--main);
     display: grid;
     grid-template-columns: 1fr 1fr;
+    min-width: fit-content; /* arreglar problemas de header no llegando al final cuando la pantalla es chica */
 }
 
 header > h1 {
@@ -58,6 +59,23 @@ nav > ul > li::marker
 nav > ul > li:hover::marker
 {
     content: "👉";
+}
+
+@media (width <= 976px) {
+    header {
+        display: block;
+    }
+
+    nav > ul {
+        justify-content: flex-start;
+        padding-bottom: 20px;
+    }
+}
+
+@media (width <= 490px) {
+    nav > ul {
+        display: block;
+    }
 }
 
 /* Main */
