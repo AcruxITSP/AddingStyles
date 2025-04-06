@@ -1,0 +1,78 @@
+:root {
+    --main: rgb(74, 71, 214);
+    --accent: rgb(164, 252, 244);
+    --nav-margin: 40px;
+    --nav-link-font-size: 18px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* Header*/
+
+header {
+    background-color: var(--main);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+header > h1 {
+    padding: 1rem;
+    color: white;
+}
+
+header > h1::before {
+    content: " ✨"
+}
+
+nav > ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+
+nav > ul > li {
+    margin-left: var(--nav-margin);
+}
+
+nav > ul > li:last-child {
+    margin-right: calc(var(--nav-margin) / 2);
+}
+
+nav > ul > li > a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: var(--nav-link-font-size)
+}
+
+nav > ul > li::marker
+{
+    color: white;
+    content: "👉   ";
+}
+
+nav > ul > li:hover::marker
+{
+    content: "👉";
+}
+
+/* Main */
+
+main {
+    margin: 2rem;
+}
+
+/* Others */
+a {
+    transition-duration: 0.3s;
+}
+
+a:hover {
+    font-weight: bolder;
+    color: var(--accent);
+    font-size: calc(var(--nav-link-font-size) + 3px);
+}
