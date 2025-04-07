@@ -1,27 +1,34 @@
 :root {
     --main: rgb(74, 71, 214);
     --accent: rgb(164, 252, 244);
-    --nav-margin: 40px;
-    --nav-link-font-size: 18px;
+    --nav-margin: 10px;
+    --nav-link-font-size: 14px;
 }
 
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
-/* Header*/
+body {
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+}
 
+/* Header */
 header {
     background-color: var(--main);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-width: fit-content; /* arreglar problemas de header no llegando al final cuando la pantalla es chica */
+    min-width: fit-content;
+    padding: 1rem;
 }
 
 header > h1 {
     padding: 1rem;
     color: white;
+    font-size: 1.5rem;
 }
 
 header > h1::before {
@@ -40,57 +47,129 @@ nav > ul > li {
 }
 
 nav > ul > li:last-child {
-    margin-right: calc(var(--nav-margin) / 2);
+    margin-right: var(--nav-margin);
 }
 
-nav > ul > li > a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: var(--nav-link-font-size)
-}
-
-nav > ul > li::marker
-{
+nav > ul > li::marker {
     color: white;
     content: "👉   ";
 }
 
-nav > ul > li:hover::marker
-{
+nav > ul > li:hover::marker {
     content: "👉";
 }
 
-@media (width <= 976px) {
-    header {
-        display: block;
-    }
-
-    nav > ul {
-        justify-content: flex-start;
-        padding-bottom: 20px;
-    }
-}
-
-@media (width <= 490px) {
-    nav > ul {
-        display: block;
-    }
-}
-
 /* Main */
-
 main {
     margin: 2rem;
 }
 
-/* Others */
+ul {
+    list-style-position: inside;
+}
+
+section {
+    margin-bottom: 3rem;
+    max-width: 40rem;
+}
+
+h2 {
+    margin-bottom: 1rem;
+}
+
+#que-es > h2::after {
+    content: " 🎉";
+}
+
+#que-es > img {
+    margin-top: 2rem;
+    max-width: 100%;
+    height: auto;
+}
+
+#tipos > h2::after {
+    content: " 🎈"
+}
+
+#aplicaciones > h2::after {
+    content: " 🧠"
+}
+
+#futuro > h2::after {
+    content: " 🌐"
+}
+
+/* FOOTER */
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: var(--main);
+    color: white;
+}
+
+footer:first-child:before {
+    content: "©";
+}
+
+/* OTHER */
 a {
     transition-duration: 0.3s;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: var(--nav-link-font-size);
 }
 
 a:hover {
     font-weight: bolder;
     color: var(--accent);
     font-size: calc(var(--nav-link-font-size) + 3px);
+}
+
+/* Media Queries */
+@media (max-width: 976px) {
+    header {
+        display: block;
+        text-align: center;
+    }
+
+    header > h1 {
+        font-size: 1.3rem;
+    }
+
+    nav > ul {
+        justify-content: center;
+        padding-bottom: 20px;
+    }
+
+    nav > ul > li {
+        margin: 0 5px;
+    }
+}
+
+
+
+@media (max-width: 490px) {
+    body {
+        font-size: 14px;
+    }
+
+    header > h1 {
+        font-size: 1.1rem;
+    }
+
+    nav > ul {
+        display: block;
+        padding: 0;
+    }
+
+    nav > ul > li {
+        margin: 10px 0;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
 }
